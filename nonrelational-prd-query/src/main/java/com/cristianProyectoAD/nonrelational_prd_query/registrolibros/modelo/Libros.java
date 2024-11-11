@@ -1,9 +1,11 @@
 package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+@Document(collection = "libros")
 public class Libros {
 
     //id de la clase
