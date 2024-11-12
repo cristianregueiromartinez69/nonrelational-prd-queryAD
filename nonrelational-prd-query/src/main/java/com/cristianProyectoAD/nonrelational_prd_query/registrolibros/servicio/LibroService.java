@@ -1,9 +1,11 @@
 package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.servicio;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.dto.LibroRegistroDTO;
+import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.repositorio.LibroRepositorioMongo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,9 +25,15 @@ public class LibroService {
      * @param libro el libro a guardar
      */
     public void saveBook(LibroRegistroDTO libro) {
-        //creamos un objeto de tipo libro y lo guardamos en el repositorio de mongo
-        Libros librosGuardar = new Libros(libro.getIsbn(), libro.getAutor(),
-                libro.getNombre(), libro.getFechaLectura(), libro.getFechaRegistro());
-        librosRepositorio.save(librosGuardar);
+
+
+        if(librosRepositorio.existsByIsbn(libro.getIsbn())) {
+            throw new DuplicateIsbnException("el isbn ya existe en la base de datos, por favor, introduce otro");
+        }
+        else{
+            Libros librosGuardar = new Libros(libro.getIsbn(), libro.getAutor(),
+                    libro.getNombre(), libro.getFechaLectura(), libro.getFechaRegistro());
+            librosRepositorio.save(librosGuardar);
+        }
     }
 }
