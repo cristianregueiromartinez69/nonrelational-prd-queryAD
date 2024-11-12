@@ -5,6 +5,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
+/**
+ * Clase con la colección de libros de mongo
+ * @author cristian
+ * @version 1.0
+ */
 @Document(collection = "libros")
 public class Libros {
 
@@ -25,6 +30,7 @@ public class Libros {
      * @param isbn el isbn del libro
      * @param autor el autor del libro
      * @param nombre el nombre del libro
+     * @param fechaLectura la fecha de lectura del libro
      * @param fechaRegistro la fecha de registro del libro
      */
     public Libros(String isbn, String autor, String nombre, LocalDate fechaLectura, LocalDate fechaRegistro) {
