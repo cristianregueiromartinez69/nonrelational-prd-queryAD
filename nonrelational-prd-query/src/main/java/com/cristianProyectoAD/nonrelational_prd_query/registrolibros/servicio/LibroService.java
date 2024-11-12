@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LibroService {
 
-    //inyyección de dependencias en el repositorio de mongo
+    //inyección de dependencias en el repositorio de mongo
     @Autowired
     private LibroRepositorioMongo librosRepositorio;
 
