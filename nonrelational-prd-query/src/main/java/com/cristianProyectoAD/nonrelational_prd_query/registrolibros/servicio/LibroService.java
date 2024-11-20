@@ -3,9 +3,8 @@ package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.servicio;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.dto.LibroRegistroDTO;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
-import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.repositorio.LibroRepositorioMongo;
+import com.cristianProyectoAD.nonrelational_prd_query.repositorio.LibroRepositorioMongo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 /**

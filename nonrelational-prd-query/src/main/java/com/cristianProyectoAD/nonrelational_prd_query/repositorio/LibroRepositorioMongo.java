@@ -1,4 +1,4 @@
-package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.repositorio;
+package com.cristianProyectoAD.nonrelational_prd_query.repositorio;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
 import org.springframework.data.mongodb.repository.MongoRepository;

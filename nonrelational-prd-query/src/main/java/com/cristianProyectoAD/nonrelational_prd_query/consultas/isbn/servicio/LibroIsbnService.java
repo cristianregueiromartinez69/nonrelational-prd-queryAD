@@ -1,7 +1,7 @@
 package com.cristianProyectoAD.nonrelational_prd_query.consultas.isbn.servicio;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
-import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.repositorio.LibroRepositorioMongo;
+import com.cristianProyectoAD.nonrelational_prd_query.repositorio.LibroRepositorioMongo;
 import org.springframework.stereotype.Service;
 
 /**
