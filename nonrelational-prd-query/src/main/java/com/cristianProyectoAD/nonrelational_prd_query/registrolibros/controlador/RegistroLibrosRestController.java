@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/nonrelational-prd-query/libros")
+@RequestMapping("/nonrelational-prd-query/libros/")
 public class RegistroLibrosRestController {
 
     //servicio de registro de libros
