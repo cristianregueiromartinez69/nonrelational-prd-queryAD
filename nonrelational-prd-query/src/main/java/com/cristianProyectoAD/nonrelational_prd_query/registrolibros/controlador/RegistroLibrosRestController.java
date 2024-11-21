@@ -41,9 +41,6 @@ public class RegistroLibrosRestController {
         return ResponseEntity.ok("Registro de libro en MongoDB");
     }
 
-    @ExceptionHandler(DuplicateIsbnException.class)
-    public ResponseEntity<String> handleDuplicateIsbnException(DuplicateIsbnException e) {
-        return ResponseEntity.badRequest().body(e.getMessage());
-    }
+
 
 }
