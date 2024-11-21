@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Clase servicio donde llamamos al repositorio de mongo para el registro de libros
+ *
  * @author cristian
  * @version 1.0
  */
@@ -20,13 +21,19 @@ public class LibroService {
 
     /**
      * Metodo para guardar libros en el repositorio de mongo
+     *
      * @param libro el libro a guardar
      */
     public void saveBook(LibroRegistroDTO libro) {
 
+        if (!librosRepositorio.existsByIsbn(libro.getIsbn())) {
             Libros librosGuardar = new Libros(libro.getIsbn(), libro.getAutor(),
                     libro.getNombre(), libro.getFechaLectura(), libro.getFechaRegistro());
             librosRepositorio.save(librosGuardar);
+        } else {
+
         }
+
     }
+}
 
