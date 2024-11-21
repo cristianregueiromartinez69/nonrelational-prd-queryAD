@@ -1,9 +1,7 @@
 package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.controlador;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.dto.LibroRegistroDTO;
-import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.servicio.LibroService;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
