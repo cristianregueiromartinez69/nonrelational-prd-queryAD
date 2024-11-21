@@ -1,6 +1,7 @@
 package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.controlador;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.dto.LibroRegistroDTO;
+import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.exception.DuplicateIsbnException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.servicio.LibroService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,8 +35,12 @@ public class RegistroLibrosRestController {
      */
     @PostMapping("/guardar")
     public ResponseEntity<String> saveBooksMongo(@RequestBody LibroRegistroDTO registro) {
-        libroService.saveBook(registro);
+        try{
+            libroService.saveBook(registro);
 
+        } catch (DuplicateIsbnException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         return ResponseEntity.ok("Registro de libro en MongoDB");
     }
 

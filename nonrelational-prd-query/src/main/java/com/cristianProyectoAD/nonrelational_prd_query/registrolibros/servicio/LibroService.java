@@ -1,6 +1,7 @@
 package com.cristianProyectoAD.nonrelational_prd_query.registrolibros.servicio;
 
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.dto.LibroRegistroDTO;
+import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.exception.DuplicateIsbnException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
 import com.cristianProyectoAD.nonrelational_prd_query.repositorio.LibroRepositorioMongo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +25,14 @@ public class LibroService {
      *
      * @param libro el libro a guardar
      */
-    public void saveBook(LibroRegistroDTO libro) {
+    public void saveBook(LibroRegistroDTO libro) throws DuplicateIsbnException {
 
         if (!librosRepositorio.existsByIsbn(libro.getIsbn())) {
             Libros librosGuardar = new Libros(libro.getIsbn(), libro.getAutor(),
                     libro.getNombre(), libro.getFechaLectura(), libro.getFechaRegistro());
             librosRepositorio.save(librosGuardar);
         } else {
-
+            throw new DuplicateIsbnException("Este libro ya existe en la base de datos");
         }
 
     }
