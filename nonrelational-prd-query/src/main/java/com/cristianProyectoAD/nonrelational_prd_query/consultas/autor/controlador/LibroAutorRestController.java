@@ -23,9 +23,6 @@ public class LibroAutorRestController {
     @GetMapping("autor{autor}")
     public ResponseEntity<List<Libros>> getLibrosMongoByAutor(@PathVariable String autor) {
         List<Libros> librosAutorList = libroAutorService.getLibrosByAutor(autor);
-        if (librosAutorList.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
         return ResponseEntity.ok(librosAutorList);
     }
 }

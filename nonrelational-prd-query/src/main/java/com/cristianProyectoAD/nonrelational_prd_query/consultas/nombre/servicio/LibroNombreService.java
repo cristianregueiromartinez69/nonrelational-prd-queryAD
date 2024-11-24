@@ -1,5 +1,6 @@
 package com.cristianProyectoAD.nonrelational_prd_query.consultas.nombre.servicio;
 
+import com.cristianProyectoAD.nonrelational_prd_query.excepcionglobal.BookNotFoundException;
 import com.cristianProyectoAD.nonrelational_prd_query.registrolibros.modelo.Libros;
 import com.cristianProyectoAD.nonrelational_prd_query.repositorio.LibroRepositorioMongo;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,10 @@ public class LibroNombreService {
     }
 
     public List<Libros> getLibrosByNombre(String nombre) {
-        return libroRepositorio.findByNombre(nombre);
+        List<Libros> libros = libroRepositorio.findByNombre(nombre);
+        if(libros.isEmpty()) {
+            throw new BookNotFoundException("Lista de libros por nombre inexistente");
+        }
+        return libros;
     }
 }
