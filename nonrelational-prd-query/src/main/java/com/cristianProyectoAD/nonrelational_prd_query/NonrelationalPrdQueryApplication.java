@@ -10,6 +10,5 @@ public class NonrelationalPrdQueryApplication {
 		SpringApplication.run(NonrelationalPrdQueryApplication.class, args);
 	}
 
-	//TODO: preparar mongo para registro de libros
 
 }
