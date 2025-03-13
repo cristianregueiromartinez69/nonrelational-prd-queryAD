@@ -10,5 +10,5 @@ public class NonrelationalPrdQueryApplication {
 		SpringApplication.run(NonrelationalPrdQueryApplication.class, args);
 	}
 
-
+//TODO: preparando consultas entre fechas de lectura
 }
