@@ -39,7 +39,7 @@ public class LibroConsultasIsbnRestController {
      * @param isbn El ISBN del libro a consultar.
      * @return El libro encontrado o una respuesta 404 si no se encuentra el libro.
      */
-    @GetMapping("isbn{isbn}")
+    @GetMapping("/isbn/{isbn}")
     public ResponseEntity<Libros> getLibroByIsbn(@PathVariable String isbn) {
             Libros libro = libroIsbnService.getLibroByIsbn(isbn);
             return ResponseEntity.ok(libro);

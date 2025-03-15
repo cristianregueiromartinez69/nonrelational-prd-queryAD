@@ -20,7 +20,7 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/nonrelational-prd-query/libros/consultas/")
+@RequestMapping("/nonrelational-prd-query/libros/consultas")
 public class LibroNombreRestController {
 
     private final LibroNombreService libroNombreService;
@@ -41,7 +41,7 @@ public class LibroNombreRestController {
      * @return Una lista de libros que coincidan con el nombre proporcionado, dentro de una
      *         respuesta HTTP con estado 200 OK.
      */
-    @GetMapping("nombre{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<Libros>> getLibrosByNombreMongo(@PathVariable String nombre) {
         List<Libros> libros = libroNombreService.getLibrosByNombre(nombre);
         return ResponseEntity.ok(libros);

@@ -19,7 +19,7 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/nonrelational-prd-query/libros/consultas/")
+@RequestMapping("/nonrelational-prd-query/libros/consultas")
 public class LibroAutorRestController {
 
     private final LibroAutorService libroAutorService;
@@ -39,7 +39,7 @@ public class LibroAutorRestController {
      * @param autor Nombre del autor por el cual se desean buscar los libros.
      * @return ResponseEntity que contiene la lista de libros encontrados, o un error si no se encuentran coincidencias.
      */
-    @GetMapping("autor{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<List<Libros>> getLibrosMongoByAutor(@PathVariable String autor) {
         List<Libros> librosAutorList = libroAutorService.getLibrosByAutor(autor);
         return ResponseEntity.ok(librosAutorList);
